@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="warpper">
+    <h1>Chào mừng quay trở lại</h1>
+    <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+      <div class="box-field">
+        <label for="user_name">Tài khoản <span class="error">*</span></label>
+        <input type="text" id="user_name" formControlName="user_name" />
+
+        @if((getErrorMessage("user_name") &&
+        formLogin.controls.user_name.touched && formLogin.dirty) ){
+        <span class="message-error">{{ getErrorMessage("user_name") }}</span>
+        }
+      </div>
+      <div class="box-field">
+        <label for="password">Mật khẩu <span class="error">*</span></label>
+        <input type="password" id="password" formControlName="password" />
+        <!-- Đã sửa ở đây -->
+      </div>
+      <div>
+        <!-- [disabled]="!formLogin.valid" -->
+        <app-button>
+          <!-- Đảm bảo điều kiện này đúng -->
+          Đăng nhập
+        </app-button>
+      </div>
+    </form>
+  </div>
+</div>

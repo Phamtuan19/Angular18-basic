@@ -1,0 +1,34 @@
+body {
+  overflow: hidden; /* Ngăn cuộn trang khi spinner hiển thị */
+}
+
+.container-spinner {
+  position: fixed; /* Đặt spinner cố định trên màn hình */
+  top: 0; /* Đảm bảo vị trí bắt đầu từ trên cùng */
+  left: 0; /* Đảm bảo vị trí bắt đầu từ bên trái */
+  width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+  height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+  display: flex; /* Sử dụng flexbox để căn giữa spinner */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  background-color: rgba(255, 255, 255, 0.8); /* Màu nền có độ trong suốt */
+  z-index: 9999; /* Đặt z-index cao để đảm bảo spinner nằm trên tất cả nội dung khác */
+}
+
+.circular-spinner {
+  border: 8px solid rgba(255, 255, 255, 0.1); /* Màu nền của spinner */
+  border-left-color: #007bff; /* Màu quay của spinner */
+  border-radius: 50%; /* Hình dạng tròn */
+  width: 50px; /* Đường kính spinner */
+  height: 50px; /* Đường kính spinner */
+  animation: spin 1s linear infinite; /* Hoạt ảnh quay */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Vị trí bắt đầu */
+  }
+  100% {
+    transform: rotate(360deg); /* Vị trí kết thúc */
+  }
+}

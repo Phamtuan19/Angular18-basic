@@ -1,0 +1,29 @@
+.button {
+  min-width: 64px;
+  width: 100%;
+  padding: 12px; /* Tăng padding cho button */
+  border-radius: 4px; /* Bo góc cho button */
+  cursor: pointer;
+  background-color: #007bff; /* Màu nền của button */
+  color: white; /* Màu chữ trắng */
+  border: none; /* Bỏ viền cho button */
+  transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển tiếp */
+  display: block;
+
+  &:hover {
+    background-color: #0056b3; /* Đổi màu khi hover */
+    transform: scale(1.02); /* Tăng kích thước khi hover */
+  }
+
+  &:active {
+    transform: scale(0.98); /* Giảm kích thước khi click */
+  }
+
+  /* Thêm quy tắc cho button khi bị vô hiệu hóa */
+  &:disabled {
+    background-color: #ccc; /* Màu nền khi disabled */
+    color: #666; /* Màu chữ khi disabled */
+    cursor: not-allowed; /* Thay đổi con trỏ chuột khi disabled */
+    opacity: 0.7; /* Giảm độ đậm của button */
+  }
+}

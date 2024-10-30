@@ -1,0 +1,208 @@
+$primary-color: #007bff;
+$secondary-color: #1b69bd;
+$danger-color: #dc3545;
+$success-color: #4caf50;
+$warning-color: #f44336;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .input {
+    max-width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+
+  .custom-select-wrapper {
+    position: relative;
+    width: 100%;
+
+    select.custom-select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      appearance: none;
+      background-color: #fff;
+      cursor: pointer;
+      transition: border-color 0.2s;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
+    }
+
+    &::after {
+      content: "▼";
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: $primary-color;
+    }
+  }
+
+  .form-button_acction {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    .button {
+      width: 100%;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+
+    .button-add__todo {
+      background-color: $secondary-color;
+      color: white;
+
+      &:hover {
+        background-color: $secondary-color;
+        transform: translateY(-1px);
+      }
+    }
+
+    .button-cancel {
+      background-color: $danger-color;
+      color: white;
+      margin-left: 10px;
+
+      &:hover {
+        background-color: darken($danger-color, 10%);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+.todo-list {
+  margin-top: 20px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      transition: box-shadow 0.2s;
+
+      &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .todo-details {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 6px;
+        margin-bottom: 5px;
+        font-size: 14px;
+
+        .todo-task {
+          display: flex;
+          gap: 12px;
+          padding: 8px 0;
+
+          .todo-task_id {
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          .todo-task_title {
+            font-size: 16px;
+          }
+        }
+
+        .todo-priority {
+          font-weight: bold;
+          color: $primary-color;
+          margin-right: 10px;
+        }
+
+        .todo-created-at {
+          color: #6c757d;
+          margin-right: 10px;
+        }
+
+        .todo-deadline {
+          color: $danger-color;
+          font-style: italic;
+        }
+      }
+
+      .todo-action {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+
+        .button {
+          padding: 10px 15px;
+          border: none;
+          border-radius: 5px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &.button-edit {
+            background-color: $success-color;
+            color: white;
+
+            &:hover {
+              background-color: darken($success-color, 10%);
+            }
+          }
+
+          &.button-delete {
+            background-color: $danger-color;
+            color: white;
+
+            &:hover {
+              background-color: darken($danger-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.priority-label {
+  margin-left: 10px;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.todo-item.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

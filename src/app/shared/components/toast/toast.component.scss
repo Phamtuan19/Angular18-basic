@@ -1,0 +1,46 @@
+/* toast.component.scss */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.toast {
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  animation: fadeInOut 3s ease forwards;
+
+  &.success {
+    background-color: #4caf50;
+  }
+
+  &.error {
+    background-color: #f44336;
+  }
+
+  &.info {
+    background-color: #2196f3;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

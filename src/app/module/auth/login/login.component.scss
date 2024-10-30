@@ -1,0 +1,95 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5; /* Màu nền nhẹ */
+}
+
+.warpper {
+  width: 400px;
+  min-height: 400px;
+  background: white; /* Màu nền trắng cho hộp */
+  border-radius: 8px; /* Bo góc cho hộp */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px; /* Tăng khoảng cách giữa các thành phần */
+  padding: 20px; /* Padding cho hộp */
+  box-sizing: border-box; /* Đảm bảo padding được tính vào tổng chiều rộng */
+}
+
+form {
+  width: 100%;
+}
+
+.box-field {
+  margin-bottom: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px; /* Khoảng cách nhỏ hơn giữa label và input */
+
+  label {
+    font-weight: bold; /* In đậm label */
+    color: #333; /* Màu chữ tối */
+  }
+
+  .error {
+    color: red;
+    font-size: 0.875rem; /* Kích thước chữ nhỏ hơn */
+  }
+
+  input {
+    max-width: 100%; /* Đảm bảo không bị vượt quá chiều rộng của .box-field */
+    padding: 12px; /* Tăng padding cho input */
+    border: 1px solid #ddd; /* Đường viền nhạt */
+    border-radius: 4px; /* Bo góc cho input */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển tiếp cho viền */
+
+    &:focus {
+      border-color: #007bff; /* Đổi màu viền khi focus */
+      outline: none; /* Bỏ viền ngoài */
+    }
+  }
+}
+
+.button {
+  margin-top: 12px;
+  min-width: 64px;
+  width: 100%;
+  padding: 12px; /* Tăng padding cho button */
+  border-radius: 4px; /* Bo góc cho button */
+  cursor: pointer;
+  background-color: #007bff; /* Màu nền của button */
+  color: white; /* Màu chữ trắng */
+  border: none; /* Bỏ viền cho button */
+  transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển tiếp */
+
+  &:hover {
+    background-color: #0056b3; /* Đổi màu khi hover */
+    transform: scale(1.02); /* Tăng kích thước khi hover */
+  }
+
+  &:active {
+    transform: scale(0.98); /* Giảm kích thước khi click */
+  }
+
+  /* Thêm quy tắc cho button khi bị vô hiệu hóa */
+  &:disabled {
+    background-color: #ccc; /* Màu nền khi disabled */
+    color: #666; /* Màu chữ khi disabled */
+    cursor: not-allowed; /* Thay đổi con trỏ chuột khi disabled */
+    opacity: 0.7; /* Giảm độ đậm của button */
+  }
+}
+
+.message-error {
+  font-size: 12px;
+  color: red;
+}
+

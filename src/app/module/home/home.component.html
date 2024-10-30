@@ -1,0 +1,83 @@
+<form [formGroup]="formTodo" (ngSubmit)="onSubmit()">
+  <div class="wrapper">
+    <input
+      type="text"
+      id="title"
+      class="input"
+      formControlName="title"
+      placeholder="Nhập tiêu đề công việc"
+    />
+    <div class="custom-select-wrapper">
+      <select
+        id="prioritySelect"
+        class="custom-select"
+        formControlName="priority"
+        aria-label="Chọn mức độ quan trọng của công việc"
+      >
+        <option value="" disabled selected hidden>
+          Chọn mức độ quan trọng
+        </option>
+        <option *ngFor="let priority of priorities" [value]="priority.value">
+          {{ priority.label }}
+        </option>
+      </select>
+    </div>
+    <input
+      type="datetime-local"
+      formControlName="deadline"
+      class="input"
+      placeholder="Chọn thời gian đến hạn"
+    />
+    <div class="form-button_acction">
+      <button type="submit" class="button button-add__todo">
+        {{ isEditing ? "Cập nhật" : "Thêm mới" }}
+      </button>
+      @if(isEditing){
+      <button type="button" class="button button-cancel" (click)="cancelEdit()">
+        Hủy
+      </button>
+      }
+    </div>
+  </div>
+</form>
+
+<!-- Hiển thị danh sách todo -->
+<div class="todo-list">
+  <h2>Danh sách công việc</h2>
+  <ul>
+    <li
+      *ngFor="let todo of listTodo"
+      class="todo-item"
+      [class.completed]="todo.completed"
+    >
+      <div class="todo-details">
+        <div class="todo-task">
+          <input
+            type="checkbox"
+            [checked]="todo.completed"
+            (change)="toggleComplete(todo)"
+          />
+          <span class="todo-task_id">Task {{ todo.id }}:</span>
+          <span class="todo-task_title">{{ todo.title }}</span>
+        </div>
+        <div class="todo-meta">
+          <span class="todo-priority">
+            {{ getPriorityLabel(todo.priority) }}
+          </span>
+          <span class="todo-created-at">
+            {{ todo.createdAt | date : "short" }}
+          </span>
+          <span *ngIf="todo.deadline" class="todo-deadline">
+            - Hạn cuối: {{ todo.deadline | date : "short" }}
+          </span>
+        </div>
+      </div>
+      <div class="todo-action" *ngIf="!todo.completed">
+        <button class="button button-edit" (click)="editTodo(todo)">Sửa</button>
+        <button class="button button-delete" (click)="deleteTodo(todo.id)">
+          Xóa
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

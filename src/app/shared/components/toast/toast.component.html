@@ -1,0 +1,10 @@
+<!-- toast.component.html -->
+<div class="toast-container">
+  <div
+    *ngFor="let toast of toastService.toasts"
+    [ngClass]="toast.type"
+    class="toast {{ toast.type }}"
+  >
+    {{ toast.message }}
+  </div>
+</div>
